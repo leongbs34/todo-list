@@ -51,18 +51,21 @@ export default {
         text: 'Doctors Appointment',
         day: 'March 1st at 2.30pm',
         reminder: true,
+        ratings: 3,
       },
       {
         id: 2,
         text: 'Gaming Session',
         day: 'March 1st at 4.30pm',
         reminder: true,
+        ratings: 4,
       },
       {
         id: 3,
         text: 'Sleep',
         day: 'March 1st at 9.30pm',
         reminder: false,
+        ratings: 5,
       }
     ]
   },

@@ -47,6 +47,7 @@ export default {
                 text: this.text,
                 day: this.day,
                 reminder: this.reminder,
+                ratings: 2,
             }
 
             this.$emit('add-task', newTask)
