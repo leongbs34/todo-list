@@ -17,6 +17,6 @@ export default {
 
 <style>
 .fa{
-    color: rgb(230, 199, 29);
+    color: red;
 }
 </style>
