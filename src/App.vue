@@ -43,6 +43,9 @@ export default {
     toggleAddTask(){
       this.showAddTask = !this.showAddTask
     },
+    sortByRatings(){
+      this.tasks = this.tasks.sort((a, b) => b.ratings > a.ratings)
+    }
   },
   created() {
     this.tasks = [
@@ -51,24 +54,29 @@ export default {
         text: 'Doctors Appointment',
         day: 'March 1st at 2.30pm',
         reminder: true,
-        ratings: 3,
+        ratings: 2,
       },
       {
         id: 2,
         text: 'Gaming Session',
         day: 'March 1st at 4.30pm',
         reminder: true,
-        ratings: 4,
+        ratings: 1,
       },
       {
         id: 3,
         text: 'Sleep',
         day: 'March 1st at 9.30pm',
         reminder: false,
-        ratings: 5,
+        ratings: 3,
       }
     ]
+    
+    this.sortByRatings()
   },
+  updated(){
+    this.sortByRatings()
+  }
 }
 </script>
 

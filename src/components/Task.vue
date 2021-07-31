@@ -12,15 +12,15 @@
 <script>
 import Ratings from './Ratings.vue'
 
-    export default{
-        name: 'Task',
-        props: {
-            task: Object,
-        },
-        components: {
-          Ratings,
-        }
-    }
+export default{
+  name: 'Task',
+  props: {
+      task: Object,
+  },
+  components: {
+    Ratings,
+  },
+}
 </script>
 
 <style scope>

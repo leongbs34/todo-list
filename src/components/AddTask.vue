@@ -13,6 +13,14 @@
         placeholder="Add Day & Time"
       />
     </div>
+    <div class="form-control">
+      <label>Importance</label>
+      <i @click="setRating(1)" class="fa fa-star" aria-hidden="true"></i>
+      <i @click="setRating(2)" :class="[ratings >= 2 ? 'fa-star fa' : 'fa-star far']" aria-hidden="true"></i>
+      <i @click="setRating(3)" :class="[ratings >= 3 ? 'fa-star fa' : 'fa-star far']" aria-hidden="true"></i>
+      <i @click="setRating(4)" :class="[ratings >= 4 ? 'fa-star fa' : 'fa-star far']" aria-hidden="true"></i>
+      <i @click="setRating(5)" :class="[ratings >= 5 ? 'fa-star fa' : 'fa-star far']" aria-hidden="true"></i>
+    </div>
     <div class="form-control form-control-check">
       <label>Set Reminder</label>
       <input type="checkbox" v-model="reminder" name="reminder" />
@@ -23,40 +31,45 @@
 </template>
 
 <script>
+
 export default {
-    name: 'AddTask',
-    data(){
-        return{
-            text: '',
-            day: '',
-            reminder: false,
-        }
-        
+  name: 'AddTask',
+  data(){
+    return{
+      text: '',
+      day: '',
+      reminder: false,
+      ratings: 1,
+    }
+  },
+  methods: {
+    setRating(rating){
+      this.ratings = rating
     },
-    methods: {
-        onSubmit(e){
-            e.preventDefault()
+    onSubmit(e){
+      e.preventDefault()
 
-            if(!this.text){
-                alert('Please add a task')
-                return
-            }
+      if(!this.text){
+        alert('Please add a task')
+        return
+      }
 
-            const newTask = {
-                id: Math.floor(Math.random() * 100000),
-                text: this.text,
-                day: this.day,
-                reminder: this.reminder,
-                ratings: 2,
-            }
+      const newTask = {
+        id: Math.floor(Math.random() * 100000),
+        text: this.text,
+        day: this.day,
+        reminder: this.reminder,
+        ratings: this.ratings,
+      }
 
-            this.$emit('add-task', newTask)
+      this.$emit('add-task', newTask)
 
-            this.text = ''
-            this.day = ''
-            this.reminder = false
-        },
+      this.text = ''
+      this.day = ''
+      this.reminder = false
+      this.ratings = 1
     },
+  },
 }
 </script>
 
